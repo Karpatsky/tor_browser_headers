@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='tor_browser_headers',
+    name='tor-browser-headers',
     version='1.0.0',
     description='Collection of HTTP headers (including User-Agent) of different versions of Tor Browser.' +
                 'Scrapy middleware that picks up random headers.',

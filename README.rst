@@ -1,9 +1,9 @@
-.. image:: https://badge.fury.io/py/torbrowser-headers.svg
-     :target: http://badge.fury.io/py/torbrowser-headers
+.. image:: https://badge.fury.io/py/tor-browser-headers.svg
+     :target: http://badge.fury.io/py/tor-browser-headers
      :alt: PyPI version
 
-.. image:: https://requires.io/github/mezrin/torbrowser-headers/requirements.svg?branch=master
-     :target: https://requires.io/github/mezrin/torbrowser-headers/requirements/?branch=master
+.. image:: https://requires.io/github/mezrin/tor-browser-headers/requirements.svg?branch=master
+     :target: https://requires.io/github/mezrin/tor-browser-headers/requirements/?branch=master
      :alt: Requirements Status
 
 ##################
@@ -12,6 +12,9 @@ torbrowser-headers
 
 Collection of HTTP headers (including User-Agent) of different versions of Tor Browser.
 Scrapy middleware that picks up random headers.
+
+Source of HTTP headers - freshly installed Tor Browser of different versions.
+https://archive.torproject.org/tor-package-archive/torbrowser/
 
 #####
 Usage
@@ -41,9 +44,9 @@ In Scrapy >=1.0:
 ::
 
     DOWNLOADER_MIDDLEWARES = {
-        'scrapy.downloadermiddlewares.useragent.DefaultHeadersMiddleware': None,
+        'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware': None,
         'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
-        'torbrowser-headers.middleware.TorBrowserHeadersMiddleware': 500,
+        'tor_browser_headers.middleware.TorBrowserHeadersMiddleware': 500,
     }
 
 In Scrapy <1.0:
@@ -51,9 +54,9 @@ In Scrapy <1.0:
 ::
 
     DOWNLOADER_MIDDLEWARES = {
-        'scrapy.contrib.downloadermiddleware.useragent.DefaultHeadersMiddleware': None,
+        'scrapy.contrib.downloadermiddleware.defaultheaders.DefaultHeadersMiddleware': None,
         'scrapy.contrib.downloadermiddleware.useragent.UserAgentMiddleware': None,
-        'torbrowser-headers.middleware.TorBrowserHeadersMiddleware': 400,
+        'tor_browser_headers.middleware.TorBrowserHeadersMiddleware': 400,
     }
 
 Configuring headers type (Optional)
@@ -86,7 +89,7 @@ To use with middlewares of random proxy such as `scrapy-proxies <https://github.
 2. set priority of ``TorBrowserHeadersMiddleware`` to be greater than ``scrapy-proxies``, so that proxy is set before handle headers
 
 
-.. |GitHub version| image:: https://badge.fury.io/gh/mezrin%2Ftorbrowser-headers.svg
+.. |GitHub version| image:: https://badge.fury.io/gh/mezrin%2Ftor-browser-headers.svg
    :target: http://badge.fury.io/gh/mezrin%2Ftorbrowser-headers
-.. |Requirements Status| image:: https://requires.io/github/mezrin/torbrowser-headers/requirements.svg?branch=master
-   :target: https://requires.io/github/mezrin/torbrowser-headers/requirements/?branch=master
+.. |Requirements Status| image:: https://requires.io/github/mezrin/tor-browser-headers/requirements.svg?branch=master
+   :target: https://requires.io/github/mezrin/tor-browser-headers/requirements/?branch=master
